@@ -14,8 +14,10 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2
 apt-get update -y
 apt-get install sbt -y
 rm -rf kafka_2.10-0.9.0.1*
-wget http://www-us.apache.org/dist/kafka/0.9.0.1/kafka_2.10-0.9.0.1.tgz
-tar -jxvf kafka_2.10-0.9.0.1.tgz
+apt-get install curl -y
+curl -O https://storage.googleapis.com/gggopaddle1/kafka_2.10-0.9.0.1.zip
+sleep 15
+unzip kafka_2.10-0.9.0.1.zip
 kafka_2.10-0.9.0.1/bin/zookeeper-server-start.sh kafka_2.10-0.9.0.1/config/zookeeper.properties&
 #kafka_2.10-0.9.0.1/bin/kafka-server-start.sh kafka_2.10-0.9.0.1/config/server.properties&
 #kafka_2.10-0.9.0.1/bin/kafka-console-producer.sh --topic test --broker-list localhost:9092
